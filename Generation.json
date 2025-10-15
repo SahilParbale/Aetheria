@@ -1,0 +1,55 @@
+{
+    "name": "Generation",
+    "type": "object",
+    "properties": {
+        "concept": {
+            "type": "string",
+            "description": "Original user concept"
+        },
+        "modality": {
+            "type": "string",
+            "enum": [
+                "image",
+                "audio",
+                "video",
+                "music"
+            ],
+            "description": "The type of media to generate"
+        },
+        "planning_output": {
+            "type": "object",
+            "description": "Output from planning agent"
+        },
+        "enhanced_prompt": {
+            "type": "string",
+            "description": "Enhanced prompt for the generation agent"
+        },
+        "generated_output": {
+            "type": "object",
+            "description": "The final output from the generation agent (e.g., image URL, script, etc.)"
+        },
+        "analysis": {
+            "type": "object",
+            "description": "Analysis from the review agent"
+        },
+        "workflow_duration": {
+            "type": "number",
+            "description": "Total time taken in seconds"
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "planning",
+                "generating",
+                "analyzing",
+                "completed",
+                "failed"
+            ],
+            "default": "planning"
+        }
+    },
+    "required": [
+        "concept",
+        "modality"
+    ]
+}
